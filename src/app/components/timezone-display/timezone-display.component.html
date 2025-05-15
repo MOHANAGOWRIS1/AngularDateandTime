@@ -1,0 +1,23 @@
+
+<div class="timezone-container">
+  <h2>World Clock</h2>
+  
+  <div class="selector-container">
+    <label for="country-select">Select a Country:</label>
+    <select 
+      id="country-select" 
+      [(ngModel)]="selectedTimezone" 
+      (change)="onTimezoneChange()" 
+      class="country-select">
+      <option *ngFor="let tz of availableTimezones" [value]="tz.zone">
+        {{ tz.name }}
+      </option>
+    </select>
+  </div>
+  
+  <div class="time-display">
+    <h3>{{ getSelectedTimezoneName() }}</h3>
+    <p class="timezone-zone">{{ selectedTimezone }}</p>
+    <p class="current-time">{{ currentTime }}</p>
+  </div>
+</div>
